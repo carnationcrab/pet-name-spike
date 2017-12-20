@@ -14,6 +14,15 @@ getDogs(): Observable<Dog[]> {
   this.messageService.add('DogService has fetched Dogs!')
   return of(DOGS);
 }
+
+getDog(id: number): Observable<Dog> {
+  // Todo: send the message _after_ fetching the dog
+  this.messageService.add(`DogService: fetched dog id=${id}`);
+  return of(DOGS.find(dog => dog.id === id));
+}
+
   constructor(private messageService: MessageService) { }
 
 }
+
+

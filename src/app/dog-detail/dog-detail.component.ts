@@ -28,6 +28,11 @@ export class DogDetailComponent implements OnInit {
     this.dogService.getDog(id)
       .subscribe(dog => this.dog = dog);
   }
+
+  save(): void {
+    this.dogService.updateDog(this.dog)
+      .subscribe(() => this.goBack());
+  }
  
   goBack(): void {
     this.location.back();
